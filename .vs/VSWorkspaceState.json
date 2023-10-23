@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Asset Tracking System",
+    "\\Asset Tracking System\\Asset Tracking System"
   ],
-  "SelectedNode": "\\C:\\Users\\khana\\Source\\Repos\\project-Gintoki734",
+  "SelectedNode": "\\Asset Tracking System\\Asset Tracking System\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }

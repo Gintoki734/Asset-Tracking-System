@@ -1,7 +1,5 @@
-using System.Data.SqlClient; // when accessing the database
-using System.Data.SqlTypes; // when retrieving from database
-using System.Data; // for different data containers
-
+using MySql.Data.MySqlClient; // when accessing the database
+using System.Data;
 
 namespace Asset_Tracking_System
 {
@@ -10,30 +8,45 @@ namespace Asset_Tracking_System
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SqlConnection conn; // set a connection variable
-                                
+            MySqlConnection conn; // set a connection variable
+
             // information about the server and database to connect to
-            string connString = "Data Source = tolmount.abertay.ac.uk; Initial Catalog = sql2102230; User ID = sql2102230; Password = v8Fksm9zWUEm";
+            string connString = "Data Source = lochnagar.abertay.ac.uk; Initial Catalog = sql2102230; User ID = sql2102230; Password = v8Fksm9zWUEm";
 
             // initialize the connection variable with this information
-            conn = new SqlConnection(connString);
+            conn = new MySqlConnection(connString);
 
             try // try executing this block
             {
                 conn.Open(); // open the connection
                 MessageBox.Show("Connection");
-                // DO WHATEVER
-                
-                conn.Close(); // close the connection
-                Console.WriteLine("\nConnection successfully terminated.");
+
+                string query = "SELECT * FROM Asset";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+
+                MySqlDataReader data = command.ExecuteReader();
+
+                if (data.HasRows)
+                {
+                    DataTable dt = new DataTable();
+
+                    dt.Load(data);
+                    dataGridView1.DataSource = dt;
+                }
+
+                data.Close();
+
             }
             catch (Exception ex) // catch any error from above block
             {
-                 Console.WriteLine(ex.Message);
+                MessageBox.Show("Here");
+                MessageBox.Show(ex.Message);
             }
 
         }
