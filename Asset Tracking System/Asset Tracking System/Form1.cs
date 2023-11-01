@@ -24,6 +24,7 @@ namespace Asset_Tracking_System
 
             asset = new Asset(dbConManager);
 
+            //Displays the asset
             dataGridView2.DataSource = asset.ViewAsset();
 
 
@@ -46,6 +47,7 @@ namespace Asset_Tracking_System
 
         private void btnAddAsset_Click(object sender, EventArgs e)
         {
+            //Takes the user to the next form
             this.Hide();
             AddA sistema = new AddA();
             sistema.ShowDialog();

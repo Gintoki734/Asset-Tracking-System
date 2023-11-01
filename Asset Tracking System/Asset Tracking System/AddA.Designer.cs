@@ -126,7 +126,9 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(500, 825);
             dataGridView1.Margin = new Padding(2);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 33;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -201,6 +203,7 @@
             txtIp.Location = new Point(499, 518);
             txtIp.Margin = new Padding(2);
             txtIp.Name = "txtIp";
+            txtIp.ReadOnly = true;
             txtIp.Size = new Size(362, 31);
             txtIp.TabIndex = 15;
             txtIp.TextChanged += textBox7_TextChanged;

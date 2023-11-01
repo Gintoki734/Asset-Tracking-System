@@ -33,6 +33,7 @@ namespace Asset_Tracking_System
                 //added placeholder so that it protect against sql injection attack
                 string query = "INSERT INTO Employee(FirstName,LastName,Email,Department) VALUES (@Name, @Model, @Manufacturer, @Type, @IPAddress, @PurchaseDate, @Note)";
 
+
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 // Adding the values in the placeholder

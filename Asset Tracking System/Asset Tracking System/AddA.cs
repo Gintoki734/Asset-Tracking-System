@@ -9,14 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Asset_Tracking_System
 {
     public partial class AddA : Form
     {
         private Asset asset;
-        private int aid = -1;
-
         private dbConManagement dbConManager;
         private Employee emp;
 
@@ -46,7 +46,30 @@ namespace Asset_Tracking_System
 
         private void AddA_Load(object sender, EventArgs e)
         {
+            //get the data from the system
+            ManagementObjectSearcher search = new("SELECT * FROM Win32_ComputerSystem");
 
+            //displays the data to the user
+            foreach (var item in search.Get())
+            {
+                txtName.Text = item["Name"].ToString();
+                txtMan.Text = item["Manufacturer"].ToString();
+                txtModel.Text = item["Model"].ToString();
+                txtType.Text = item["SystemType"].ToString();
+            }
+
+            //gets the ip adress and displays it to the user
+            IPHostEntry host;
+            string localIp = "?";
+            host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    txtIp.Text = ip.ToString();
+                }
+            }
 
             dataGridView1.DataSource = emp.ViewEmp();
         }
@@ -62,26 +85,15 @@ namespace Asset_Tracking_System
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //
-            ManagementObjectSearcher search = new("SELECT * FROM Win32_ComputerSystem");
-
-
-            foreach (var item in search.Get())
-            {
-                txtName.Text = item["Name"].ToString();
-                txtMan.Text = item["Manufacturer"].ToString();
-                txtModel.Text = item["Model"].ToString();
-                txtType.Text = item["Type"].ToString();
-                //txtIp.Text
-            }
 
             //saves the data in the variable
-            asset.Name = txtName.Text.ToString();
+            asset.Name = txtName.Text;
             asset.Manufacturer = txtMan.Text;
             asset.Model = txtModel.Text;
             asset.Type = txtType.Text;
             asset.IPAddress = txtIp.Text;
 
+            //checks if the asset has purchase date or not
             if (checkBox1.Checked)
             {
                 asset.PurchaseDate = dtpPdate.Value;
@@ -98,40 +110,12 @@ namespace Asset_Tracking_System
             {
 
                 //gets employee id
-                int eID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["EmployeeID"].Value);
-
-                MySqlConnection conn = asset.dbManager.GetConnection(); // set a connection variable
-                DataTable dt = new DataTable();
+                asset.EmployeeID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["EmployeeID"].Value);
 
                 try // try executing this block
                 {
                     //Adds asset
-                    aid = asset.AddAsset(asset, eID);
-
-                    /*
-                    //added placeholder so that it protect against sql injection attack
-                    string query = "INSERT INTO Assign(Asset_id,Employee_id) VALUES (@AID, @EID)";
-
-                    MySqlCommand command = new MySqlCommand(query, conn);
-
-                    // Adding the values in the placeholder
-                    command.Parameters.AddWithValue("@AID", aid);
-                    command.Parameters.AddWithValue("@EID", eID);
-
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Data Inserted Sucessfully");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Insertion Failed");
-                    }
-                    */
+                    asset.AddAsset(asset);
 
                 }
                 catch (Exception ex) // catch any error from above block
@@ -145,8 +129,6 @@ namespace Asset_Tracking_System
                 MessageBox.Show("Please Select an Employee to assign");
             }
 
-
-
         }
 
         private void dtpPdate_ValueChanged(object sender, EventArgs e)
@@ -156,6 +138,7 @@ namespace Asset_Tracking_System
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            //Cheks if the user wants to add purchase date or not
             if (checkBox1.Checked)
             {
                 dtpPdate.Visible = true;
