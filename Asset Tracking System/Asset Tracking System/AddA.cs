@@ -46,7 +46,7 @@ namespace Asset_Tracking_System
 
         private void AddA_Load(object sender, EventArgs e)
         {
-            //get the data from the system
+            //get the data from the system, learned from this website "https://csharp.hotexamples.com/examples/System.Management/ManagementObjectSearcher/-/php-managementobjectsearcher-class-examples.html"
             ManagementObjectSearcher search = new("SELECT * FROM Win32_ComputerSystem");
 
             //displays the data to the user
@@ -58,7 +58,7 @@ namespace Asset_Tracking_System
                 txtType.Text = item["SystemType"].ToString();
             }
 
-            //gets the ip adress and displays it to the user
+            //gets the ip adress and displays it to the user, leanred from this website "https://stackoverflow.com/questions/6803073/get-local-ip-address"
             IPHostEntry host;
             string localIp = "?";
             host = Dns.GetHostEntry(Dns.GetHostName());

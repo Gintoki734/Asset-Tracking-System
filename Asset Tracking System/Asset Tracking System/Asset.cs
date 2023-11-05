@@ -36,7 +36,7 @@ namespace Asset_Tracking_System
 
             try // try executing this block
             {
-                //added placeholder so that it protect against sql injection attack
+                //added placeholder so that it protect against sql injection attack, i learned this approach here "https://stackoverflow.com/questions/14376473/what-are-good-ways-to-prevent-sql-injection"
                 string query = "INSERT INTO Asset(Name,Model,Manufacturer,Type,IP_Address,Purchase_Date,Text_Note,Employee_ID) VALUES (@Name, @Model, @Manufacturer, @Type, @IPAddress, @PurchaseDate, @Note, @EmpID)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);

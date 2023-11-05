@@ -24,7 +24,7 @@ namespace Asset_Tracking_System
 
             asset = new Asset(dbConManager);
 
-            //Displays the asset
+            //Displays the asset - I learned to code to work with sql in this website "https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-sql-command.html".
             dataGridView2.DataSource = asset.ViewAsset();
 
 
