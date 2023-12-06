@@ -87,3 +87,7 @@ D:\project-Gintoki734\Asset Tracking System\Asset Tracking System\obj\Debug\net6
 D:\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\System.CodeDom.dll
 D:\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\System.Management.dll
 D:\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
+C:\Users\khana\Source\Repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\System.CodeDom.dll
+C:\Users\khana\Source\Repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\System.Management.dll
+C:\Users\khana\Source\Repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
+C:\Users\khana\source\repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\obj\Debug\net6.0-windows\Asset_Tracking_System.EditA.resources

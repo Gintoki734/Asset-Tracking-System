@@ -25,7 +25,7 @@ namespace Asset_Tracking_System
             InitializeComponent();
 
             // Initialize the DbConnectionManager with your connection string
-            dbConManager = new dbConManagement("Data Source = lochnagar.abertay.ac.uk; Initial Catalog = sql2102230; User ID = sql2102230; Password = v8Fksm9zWUEm");
+            dbConManager = new dbConManagement();
             dbConManager.OpenConnection(); // Open the connection when the main form starts
 
 

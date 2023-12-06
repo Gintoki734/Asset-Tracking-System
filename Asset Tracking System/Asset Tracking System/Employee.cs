@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Asset_Tracking_System
 {
-    internal class Employee
+    public class Employee
     { 
         private string Fname { get; set; }
         private string Lname { get; set; }

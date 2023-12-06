@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace Asset_Tracking_System
 {
-    internal class dbConManagement
+    public class dbConManagement
     {
         private MySqlConnection connection;
-        private string connStr;
+        private string connStr = "Data Source = lochnagar.abertay.ac.uk; Initial Catalog = sql2102230; User ID = sql2102230; Password = v8Fksm9zWUEm";
 
-        public dbConManagement(string connectionString)
+        public dbConManagement()
         {
-            connStr = connectionString;
             connection = new MySqlConnection(connStr);
         }
 
