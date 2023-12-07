@@ -28,7 +28,7 @@ namespace Asset_Tracking_System
             //Displays the asset - I learned to code to work with sql in this website "https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-sql-command.html".
             dataGridView2.DataSource = asset.ViewAsset();
 
-            dbConManager.CloseConnection();
+            //dbConManager.CloseConnection();
 
 
         }
@@ -48,9 +48,11 @@ namespace Asset_Tracking_System
                 asset.Note = dataGridView2.SelectedRows[0].Cells["Text_Note"].Value?.ToString() ?? "";
                 asset.EmployeeID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["Employee_ID"].Value);
 
+                int aID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["A_Id"].Value);
+
                 // Takes the user to the next form
                 this.Hide();
-                EditA A = new EditA(asset);
+                EditA A = new EditA(asset, aID);
                 A.ShowDialog();
                 this.Close();
 

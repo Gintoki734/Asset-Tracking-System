@@ -111,7 +111,7 @@ namespace Asset_Tracking_System
             return dt;
 
         }
-        public void EditAsset(Asset newAsset) {
+        public void EditAsset(Asset newAsset, int ID) {
 
             MySqlConnection conn = dbManager.GetConnection(); // set a connection variable
             //DataTable dt = new DataTable();
@@ -119,7 +119,7 @@ namespace Asset_Tracking_System
             try // try executing this block
             {
                 //added placeholder so that it protect against sql injection attack, i learned this approach here "https://stackoverflow.com/questions/14376473/what-are-good-ways-to-prevent-sql-injection"
-                string query = "UPDATE Asset SET Name = @Name, Model = @Model, Manufacturer = @Manufacturer, Type = @Type, IP_Address = @IPAddress, Purchase_Date = @PurchaseDate, Text_Note = @Note, Employee_ID = @EmpID WHERE AssetID = @ID";
+                string query = "UPDATE Asset SET Name = @Name, Model = @Model, Manufacturer = @Manufacturer, Type = @Type, IP_Address = @IPAddress, Purchase_Date = @PurchaseDate, Text_Note = @Note, Employee_ID = @EmpID WHERE A_ID = @ID";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
 
@@ -142,6 +142,7 @@ namespace Asset_Tracking_System
 
                 command.Parameters.AddWithValue("@Note", newAsset.Note);
                 command.Parameters.AddWithValue("@EmpID", newAsset.EmployeeID);
+                command.Parameters.AddWithValue("@ID", ID);
 
                 //Executes the query
                 int rowsAffected = command.ExecuteNonQuery();
@@ -149,11 +150,11 @@ namespace Asset_Tracking_System
                 //Displays if the user data has been inserted or not
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show("Data Inserted Sucessfully");
+                    MessageBox.Show("Data Updated Sucessfully");
                 }
                 else
                 {
-                    MessageBox.Show("Insertion Failed");
+                    MessageBox.Show("Update Failed");
                 }
 
             }
