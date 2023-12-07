@@ -54,7 +54,8 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            textBox1 = new TextBox();
+            txtIns = new TextBox();
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -125,7 +126,7 @@
             btnSubmit.Location = new Point(500, 1168);
             btnSubmit.Margin = new Padding(2);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(222, 142);
+            btnSubmit.Size = new Size(293, 142);
             btnSubmit.TabIndex = 6;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
@@ -333,21 +334,33 @@
             label11.TabIndex = 28;
             label11.Text = "Installation Date";
             // 
-            // textBox1
+            // txtIns
             // 
-            textBox1.Location = new Point(1416, 418);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(362, 31);
-            textBox1.TabIndex = 29;
+            txtIns.Location = new Point(1416, 418);
+            txtIns.Margin = new Padding(2);
+            txtIns.Name = "txtIns";
+            txtIns.ReadOnly = true;
+            txtIns.Size = new Size(362, 31);
+            txtIns.TabIndex = 29;
+            // 
+            // btnBack
+            // 
+            btnBack.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBack.Location = new Point(1543, 1168);
+            btnBack.Margin = new Padding(2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(236, 125);
+            btnBack.TabIndex = 30;
+            btnBack.Text = "Go Back";
+            btnBack.UseVisualStyleBackColor = true;
             // 
             // AddA
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 1319);
-            Controls.Add(textBox1);
+            Controls.Add(btnBack);
+            Controls.Add(txtIns);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -411,6 +424,7 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private TextBox textBox1;
+        private TextBox txtIns;
+        private Button btnBack;
     }
 }

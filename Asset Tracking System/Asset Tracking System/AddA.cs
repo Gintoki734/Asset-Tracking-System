@@ -19,6 +19,7 @@ namespace Asset_Tracking_System
         private Asset asset;
         private dbConManagement dbConManager;
         private Employee emp;
+        private SoftwareAsset soft;
 
         public AddA()
         {
@@ -31,6 +32,7 @@ namespace Asset_Tracking_System
 
             emp = new Employee(dbConManager);
             asset = new Asset(dbConManager);
+            soft = new SoftwareAsset(dbConManager);
 
         }
 
@@ -52,10 +54,17 @@ namespace Asset_Tracking_System
             //displays the data to the user
             foreach (var item in search.Get())
             {
+                //Hardware
                 txtName.Text = item["Name"].ToString();
                 txtMan.Text = item["Manufacturer"].ToString();
                 txtModel.Text = item["Model"].ToString();
                 txtType.Text = item["SystemType"].ToString();
+
+                //Software
+                txtOn.Text = item["OS Name"].ToString();
+                txtOv.Text = item["Version"].ToString();
+                txtOm.Text = item["OS Manufacturer"].ToString();
+                txtIns.Text = item["OS Name"].ToString();
             }
 
             //gets the ip adress and displays it to the user, leanred from this website "https://stackoverflow.com/questions/6803073/get-local-ip-address"
