@@ -84,6 +84,7 @@ namespace Asset_Tracking_System
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            //DELETE ThE ROW OF SELECTED DATA
             if (dataGridView2.SelectedRows.Count > 0)
             {
 
