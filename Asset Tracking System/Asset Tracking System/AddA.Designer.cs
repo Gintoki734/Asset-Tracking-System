@@ -45,6 +45,16 @@
             txtIp = new TextBox();
             dtpPdate = new DateTimePicker();
             checkBox1 = new CheckBox();
+            label4 = new Label();
+            txtOm = new TextBox();
+            label7 = new Label();
+            txtOv = new TextBox();
+            label8 = new Label();
+            txtOn = new TextBox();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -112,7 +122,7 @@
             // btnSubmit
             // 
             btnSubmit.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSubmit.Location = new Point(500, 1122);
+            btnSubmit.Location = new Point(500, 1168);
             btnSubmit.Margin = new Padding(2);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(222, 142);
@@ -124,7 +134,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(500, 825);
+            dataGridView1.Location = new Point(500, 871);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
@@ -132,7 +142,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 33;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(528, 225);
+            dataGridView1.Size = new Size(719, 225);
             dataGridView1.TabIndex = 7;
             // 
             // label3
@@ -159,7 +169,7 @@
             // 
             lblAssign.AutoSize = true;
             lblAssign.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAssign.Location = new Point(184, 825);
+            lblAssign.Location = new Point(184, 871);
             lblAssign.Margin = new Padding(2, 0, 2, 0);
             lblAssign.Name = "lblAssign";
             lblAssign.Size = new Size(265, 45);
@@ -171,7 +181,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(221, 697);
+            label5.Location = new Point(221, 743);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(93, 45);
@@ -180,7 +190,7 @@
             // 
             // txtNote
             // 
-            txtNote.Location = new Point(499, 710);
+            txtNote.Location = new Point(499, 756);
             txtNote.Margin = new Padding(2);
             txtNote.Name = "txtNote";
             txtNote.Size = new Size(362, 31);
@@ -210,7 +220,7 @@
             // 
             // dtpPdate
             // 
-            dtpPdate.Location = new Point(1333, 610);
+            dtpPdate.Location = new Point(1333, 656);
             dtpPdate.Margin = new Padding(2);
             dtpPdate.Name = "dtpPdate";
             dtpPdate.Size = new Size(360, 31);
@@ -222,7 +232,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBox1.Location = new Point(309, 610);
+            checkBox1.Location = new Point(309, 656);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(541, 49);
             checkBox1.TabIndex = 18;
@@ -230,11 +240,123 @@
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(1138, 231);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(178, 45);
+            label4.TabIndex = 24;
+            label4.Text = "OS Version";
+            // 
+            // txtOm
+            // 
+            txtOm.Location = new Point(1416, 317);
+            txtOm.Margin = new Padding(2);
+            txtOm.Name = "txtOm";
+            txtOm.ReadOnly = true;
+            txtOm.Size = new Size(362, 31);
+            txtOm.TabIndex = 23;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(1138, 317);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(220, 45);
+            label7.TabIndex = 22;
+            label7.Text = "Manufacturer";
+            // 
+            // txtOv
+            // 
+            txtOv.Location = new Point(1417, 231);
+            txtOv.Margin = new Padding(2);
+            txtOv.Name = "txtOv";
+            txtOv.ReadOnly = true;
+            txtOv.Size = new Size(362, 31);
+            txtOv.TabIndex = 21;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(1138, 142);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(157, 45);
+            label8.TabIndex = 20;
+            label8.Text = "OS Name";
+            // 
+            // txtOn
+            // 
+            txtOn.Location = new Point(1416, 155);
+            txtOn.Margin = new Padding(2);
+            txtOn.Name = "txtOn";
+            txtOn.ReadOnly = true;
+            txtOn.Size = new Size(362, 31);
+            txtOn.TabIndex = 19;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(499, 32);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(249, 45);
+            label9.TabIndex = 25;
+            label9.Text = "Hardware Asset";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(1417, 32);
+            label10.Margin = new Padding(2, 0, 2, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(236, 45);
+            label10.TabIndex = 26;
+            label10.Text = "Software Asset";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(1138, 404);
+            label11.Margin = new Padding(2, 0, 2, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(260, 45);
+            label11.TabIndex = 28;
+            label11.Text = "Installation Date";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(1416, 418);
+            textBox1.Margin = new Padding(2);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(362, 31);
+            textBox1.TabIndex = 29;
+            // 
             // AddA
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 1319);
+            Controls.Add(textBox1);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label4);
+            Controls.Add(txtOm);
+            Controls.Add(label7);
+            Controls.Add(txtOv);
+            Controls.Add(label8);
+            Controls.Add(txtOn);
             Controls.Add(checkBox1);
             Controls.Add(dtpPdate);
             Controls.Add(label6);
@@ -280,5 +402,15 @@
         private TextBox txtIp;
         private DateTimePicker dtpPdate;
         private CheckBox checkBox1;
+        private Label label4;
+        private TextBox txtOm;
+        private Label label7;
+        private TextBox txtOv;
+        private Label label8;
+        private TextBox txtOn;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private TextBox textBox1;
     }
 }
