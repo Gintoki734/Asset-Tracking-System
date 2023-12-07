@@ -81,5 +81,23 @@ namespace Asset_Tracking_System
             sistema.ShowDialog();
             this.Close();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+
+                int id = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["A_Id"].Value);
+
+                asset.DeleteAsset(id);
+
+                dataGridView2.DataSource = asset.ViewAsset();
+
+            }
+            else
+            {
+                MessageBox.Show("Please, Select an Asset to delete");
+            }
+        }
     }
 }

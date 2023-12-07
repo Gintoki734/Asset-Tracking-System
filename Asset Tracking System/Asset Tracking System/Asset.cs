@@ -119,7 +119,7 @@ namespace Asset_Tracking_System
             try // try executing this block
             {
                 //added placeholder so that it protect against sql injection attack, i learned this approach here "https://stackoverflow.com/questions/14376473/what-are-good-ways-to-prevent-sql-injection"
-                string query = "UPDATE Asset SET Name = @Name, Model = @Model, Manufacturer = @Manufacturer, Type = @Type, IP_Address = @IPAddress, Purchase_Date = @PurchaseDate, Text_Note = @Note, Employee_ID = @EmpID WHERE A_ID = @ID";
+                string query = "UPDATE Asset SET Name = @Name, Model = @Model, Manufacturer = @Manufacturer, Type = @Type, IP_Address = @IPAddress, Purchase_Date = @PurchaseDate, Text_Note = @Note, Employee_ID = @EmpID WHERE A_Id = @ID";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
 
@@ -165,6 +165,40 @@ namespace Asset_Tracking_System
             }
 
         }
-        public void DeleteAsset() { /* Implementation */ }
+        public void DeleteAsset(int id) {
+
+            MySqlConnection conn = dbManager.GetConnection(); // set a connection variable
+            //DataTable dt = new DataTable();
+
+            try // try executing this block
+            {
+                //added placeholder so that it protect against sql injection attack, i learned this approach here "https://stackoverflow.com/questions/14376473/what-are-good-ways-to-prevent-sql-injection"
+                string query = "DELETE from Asset where A_Id = @ID";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+
+                command.Parameters.AddWithValue("@ID", id);
+
+                //Executes the query
+                int rowsAffected = command.ExecuteNonQuery();
+
+                //Displays if the user data has been inserted or not
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Data Deleted Sucessfully");
+                }
+                else
+                {
+                    MessageBox.Show("Couldnt delete");
+                }
+
+            }
+            catch (Exception ex) // catch any error from above block
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+        }
     }
 }
