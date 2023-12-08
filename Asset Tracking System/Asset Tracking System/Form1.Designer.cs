@@ -38,7 +38,7 @@
             // btnAdd
             // 
             btnAdd.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnAdd.Location = new Point(1512, 34);
+            btnAdd.Location = new Point(663, 871);
             btnAdd.Margin = new Padding(2);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(338, 132);
@@ -56,14 +56,14 @@
             dataGridView2.RowHeadersWidth = 62;
             dataGridView2.RowTemplate.Height = 33;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(1322, 760);
+            dataGridView2.Size = new Size(2242, 760);
             dataGridView2.TabIndex = 2;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // btnAddAsset
             // 
             btnAddAsset.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnAddAsset.Location = new Point(1512, 232);
+            btnAddAsset.Location = new Point(102, 871);
             btnAddAsset.Margin = new Padding(2);
             btnAddAsset.Name = "btnAddAsset";
             btnAddAsset.Size = new Size(338, 132);
@@ -75,10 +75,10 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnDelete.Location = new Point(1512, 440);
+            btnDelete.Location = new Point(1149, 871);
             btnDelete.Margin = new Padding(2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(338, 174);
+            btnDelete.Size = new Size(377, 125);
             btnDelete.TabIndex = 4;
             btnDelete.Text = "DELETE ASSET";
             btnDelete.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(2554, 1055);
             Controls.Add(btnDelete);
             Controls.Add(btnAddAsset);
             Controls.Add(dataGridView2);

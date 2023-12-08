@@ -64,8 +64,6 @@ namespace Asset_Tracking_System
                         // Retrieve the hashed password from the reader
                         string hashedPasswordFromDB = data["password"].ToString();
 
-                        MessageBox.Show($"Password entered: {pass}\nHashed password from DB: {hashedPasswordFromDB}");
-
 
                         // Verify the hashed password using BCrypt
                         if (BCrypt.Net.BCrypt.Verify(pass, hashedPasswordFromDB))
@@ -93,6 +91,20 @@ namespace Asset_Tracking_System
 
                     lblError.Text = ex.Message;
                 }
+            }
+        }
+
+        private void cbs_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbs.Checked)
+            {
+                // If the CheckBox is checked, show the password
+                txtPass.PasswordChar = '\0'; // Set to '\0' (null character) to show the password
+            }
+            else
+            {
+                // If the CheckBox is not checked, hide the password
+                txtPass.PasswordChar = '*'; // Set to any character you prefer for password hiding
             }
         }
     }

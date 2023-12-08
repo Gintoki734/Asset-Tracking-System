@@ -97,6 +97,7 @@
             cbs.TabIndex = 28;
             cbs.Text = "show password";
             cbs.UseVisualStyleBackColor = true;
+            cbs.CheckedChanged += cbs_CheckedChanged;
             // 
             // btnLogIn
             // 

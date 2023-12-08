@@ -90,7 +90,7 @@ namespace Asset_Tracking_System
             try // try executing this block
             {
 
-                string query = "SELECT * FROM Asset";
+                string query = "SELECT Name, Model, Manufacturer, Type, IP_Address, Purchase_Date, Text_Note, Employee_ID, S_ID, OSName, OSVersion, Software_Manufacturer, InstallationDate FROM Asset INNER JOIN SoftwareAsset ON Asset.S_ID = SoftwareAsset.OS_ID;";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
 
