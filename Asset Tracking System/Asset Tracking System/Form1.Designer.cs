@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnAdd = new Button();
+            btnEdit = new Button();
             dataGridView2 = new DataGridView();
             btnAddAsset = new Button();
             btnDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
-            // btnAdd
+            // btnEdit
             // 
-            btnAdd.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnAdd.Location = new Point(663, 871);
-            btnAdd.Margin = new Padding(2);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(338, 132);
-            btnAdd.TabIndex = 1;
-            btnAdd.Text = "EDIT ASSET";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += button1_Click;
+            btnEdit.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
+            btnEdit.Location = new Point(614, 871);
+            btnEdit.Margin = new Padding(2);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(338, 132);
+            btnEdit.TabIndex = 1;
+            btnEdit.Text = "EDIT ASSET";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += button1_Click;
             // 
             // dataGridView2
             // 
@@ -75,10 +75,10 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnDelete.Location = new Point(1149, 871);
+            btnDelete.Location = new Point(1095, 871);
             btnDelete.Margin = new Padding(2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(377, 125);
+            btnDelete.Size = new Size(377, 132);
             btnDelete.TabIndex = 4;
             btnDelete.Text = "DELETE ASSET";
             btnDelete.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             Controls.Add(btnDelete);
             Controls.Add(btnAddAsset);
             Controls.Add(dataGridView2);
-            Controls.Add(btnAdd);
+            Controls.Add(btnEdit);
             Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
@@ -102,7 +102,7 @@
         }
 
         #endregion
-        private Button btnAdd;
+        private Button btnEdit;
         private DataGridView dataGridView2;
         private Button btnAddAsset;
         private Button btnDelete;

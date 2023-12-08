@@ -96,7 +96,7 @@ namespace Asset_Tracking_System
             try
             {
                 string query = "UPDATE SoftwareAsset SET OSName = @OSName, OSVersion = @OSVersion, " +
-                               "Software_Manufacturer = @Manufacturer, InstallationDate = @InstallationDate, " +
+                               "Software_Manufacturer = @Manufacturer, InstallationDate = @InstallationDate " +
                                "WHERE OS_ID = @ID";
 
                 MySqlCommand command = new MySqlCommand(query, conn);

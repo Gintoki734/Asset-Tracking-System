@@ -13,6 +13,7 @@ namespace Asset_Tracking_System
     {
         private dbConManagement dbConManager;
         private Asset asset;
+        private SoftwareAsset soft;
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Asset_Tracking_System
             dbConManager.OpenConnection(); // Open the connection when the main form starts
 
             asset = new Asset(dbConManager);
+            soft = new SoftwareAsset(dbConManager);
 
             //Displays the asset - I learned to code to work with sql in this website "https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-sql-command.html".
             dataGridView2.DataSource = asset.ViewAsset();
@@ -40,7 +42,7 @@ namespace Asset_Tracking_System
 
             if (dataGridView2.SelectedRows.Count > 0)
             {
-
+                //Hardware
                 asset.Name = Convert.ToString(dataGridView2.SelectedRows[0].Cells["Name"].Value);
                 asset.Manufacturer = Convert.ToString(dataGridView2.SelectedRows[0].Cells["Manufacturer"].Value);
                 asset.Model = Convert.ToString(dataGridView2.SelectedRows[0].Cells["Model"].Value);
@@ -49,12 +51,20 @@ namespace Asset_Tracking_System
                 asset.PurchaseDate = dataGridView2.SelectedRows[0].Cells["Purchase_Date"].Value as DateTime? ?? default(DateTime);
                 asset.Note = dataGridView2.SelectedRows[0].Cells["Text_Note"].Value?.ToString() ?? "";
                 asset.EmployeeID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["Employee_ID"].Value);
+                //Software
+                soft.OSName = Convert.ToString(dataGridView2.SelectedRows[0].Cells["OSName"].Value);
+                soft.OSVersion = Convert.ToString(dataGridView2.SelectedRows[0].Cells["OSVersion"].Value);
+                soft.Manufacturer = Convert.ToString(dataGridView2.SelectedRows[0].Cells["Software_Manufacturer"].Value);
+                soft.InstallationDate = Convert.ToDateTime(dataGridView2.SelectedRows[0].Cells["InstallationDate"].Value);
 
-                int aID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["A_Id"].Value);
+                MessageBox.Show("" + soft.InstallationDate);
+
+                int aID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["A_ID"].Value);
+                int SID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["S_ID"].Value);
 
                 // Takes the user to the next form
                 this.Hide();
-                EditA A = new EditA(asset, aID);
+                EditA A = new EditA(asset,soft,aID,SID);
                 A.ShowDialog();
                 this.Close();
 

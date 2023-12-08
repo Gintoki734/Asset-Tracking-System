@@ -16,15 +16,19 @@ namespace Asset_Tracking_System
         private Asset asset;
         private Employee emp;
         private dbConManagement dbConManager;
+        private SoftwareAsset soft;
 
         int aID;
+        int sID;
 
-        public EditA(Asset assets, int a)
+        public EditA(Asset assets,SoftwareAsset sAsset, int a, int s)
         {
             InitializeComponent();
 
             this.asset = assets;
+            this.soft = sAsset;
             this.aID = a;
+            this.sID = s;
 
             // Initialize the DbConnectionManager with your connection string
             dbConManager = new dbConManagement();
@@ -53,7 +57,7 @@ namespace Asset_Tracking_System
             foreach (DataGridViewRow row in dgvE.Rows)
             {
                 // Assuming the "ID" column is at index 0, modify accordingly
-                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == asset.EmployeeID.ToString()) //row.Cells["Employee_ID"].Value != null && row.Cells["Employee_ID"].Value.ToString() == asset.EmployeeID.ToString())
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == asset.EmployeeID.ToString())
                 {
                     targetRow = row;
                     break;
@@ -69,6 +73,11 @@ namespace Asset_Tracking_System
                 dgvE.FirstDisplayedScrollingRowIndex = targetRow.Index;
             }
 
+            //Software Asset
+            txtOSN.Text = soft.OSName;
+            txtOSV.Text = soft.OSVersion;
+            txtOSM.Text = soft.Manufacturer;
+            dtpINS.Value = soft.InstallationDate;
 
         }
 
@@ -94,6 +103,11 @@ namespace Asset_Tracking_System
             asset.Model = txtModel.Text;
             asset.Type = txtType.Text;
             asset.IPAddress = txtIp.Text;
+            // Software Asset
+            soft.OSName = txtOSN.Text;
+            soft.OSVersion = txtOSV.Text;
+            soft.Manufacturer = txtOSM.Text;
+            soft.InstallationDate = dtpINS.Value;
 
             //checks if the asset has purchase date or not
             if (checkBox1.Checked)
@@ -116,14 +130,25 @@ namespace Asset_Tracking_System
 
                 try // try executing this block
                 {
-                    //Adds asset
-                    asset.EditAsset(asset, aID);
+
+                    //Edits assets
+                    soft.EditSoftwareAsset(soft, sID);
 
                 }
                 catch (Exception ex) // catch any error from above block
                 {
                     MessageBox.Show(ex.Message);
 
+                }
+
+                try
+                {
+                    asset.EditAsset(asset, aID);
+                }
+                catch (Exception xe)
+                {
+
+                    MessageBox.Show(xe.Message);
                 }
             }
             else
