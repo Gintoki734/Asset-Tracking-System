@@ -128,27 +128,19 @@ namespace Asset_Tracking_System
                 //gets employee id
                 asset.EmployeeID = Convert.ToInt32(dgvE.SelectedRows[0].Cells["EmployeeID"].Value);
 
-                try // try executing this block
-                {
-
-                    //Edits assets
-                    soft.EditSoftwareAsset(soft, sID);
-
-                }
-                catch (Exception ex) // catch any error from above block
-                {
-                    MessageBox.Show(ex.Message);
-
-                }
-
                 try
                 {
-                    asset.EditAsset(asset, aID);
-                }
-                catch (Exception xe)
-                {
+                    // Edits hardware assets
+                    soft.EditSoftwareAsset(soft, sID);
 
-                    MessageBox.Show(xe.Message);
+                    // Edits the software asset
+                    asset.EditAsset(asset, aID);
+
+                    // This code won't be reached if the first edit fails
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
             else

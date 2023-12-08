@@ -124,6 +124,44 @@ namespace Asset_Tracking_System
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void DeleteSasset(int id)
+        {
+
+            MySqlConnection conn = dbManager.GetConnection(); // set a connection variable
+            //DataTable dt = new DataTable();
+
+            try // try executing this block
+            {
+                //added placeholder so that it protect against sql injection attack, i learned this approach here "https://stackoverflow.com/questions/14376473/what-are-good-ways-to-prevent-sql-injection"
+                string query = "DELETE from SoftwareAsset where OS_ID = @ID";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+
+                command.Parameters.AddWithValue("@ID", id);
+
+                //Executes the query
+                int rowsAffected = command.ExecuteNonQuery();
+
+                //Displays if the user data has been inserted or not
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Data Deleted Sucessfully");
+                }
+                else
+                {
+                    MessageBox.Show("Couldnt delete");
+                }
+
+            }
+            catch (Exception ex) // catch any error from above block
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+        }
+
     }
 
 

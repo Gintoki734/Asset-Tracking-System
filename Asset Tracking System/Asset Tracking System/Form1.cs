@@ -100,9 +100,20 @@ namespace Asset_Tracking_System
             if (dataGridView2.SelectedRows.Count > 0)
             {
 
-                int id = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["A_Id"].Value);
+                int id = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["A_ID"].Value);
+                int sid = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["S_ID"].Value);
 
-                asset.DeleteAsset(id);
+                try
+                {
+                    asset.DeleteAsset(id);
+                    soft.DeleteSasset(sid);
+                    
+                }
+                catch (Exception no)
+                {
+
+                    MessageBox.Show(no.Message);
+                }
 
                 dataGridView2.DataSource = asset.ViewAsset();
 
