@@ -15,7 +15,6 @@ namespace Asset_Tracking_System
         public string OSVersion { get; set; }
         public string Manufacturer { get; set; }
         public DateTime InstallationDate { get; set; }
-        public int HardwareAssetID { get; set; }
 
         public dbConManagement dbManager;
 
@@ -24,38 +23,32 @@ namespace Asset_Tracking_System
             dbManager = conn;
         }
 
-        public void AddSoftwareAsset(SoftwareAsset newSoftwareAsset)
+        public int AddSoftwareAsset(SoftwareAsset newSoftwareAsset)
         {
             MySqlConnection conn = dbManager.GetConnection();
 
             try
             {
-                string query = "INSERT INTO SoftwareAsset(OSName, OSVersion, Manufacturer, InstallationDate, HardwareAssetID) " +
-                               "VALUES (@OSName, @OSVersion, @Manufacturer, @InstallationDate, @HardwareAssetID)";
+                string query = "INSERT INTO SoftwareAsset(OSName, OSVersion, Software_Manufacturer, InstallationDate) VALUES (@OSName, @OSVersion, @Manufacturer, @InstallationDate)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 command.Parameters.AddWithValue("@OSName", newSoftwareAsset.OSName);
                 command.Parameters.AddWithValue("@OSVersion", newSoftwareAsset.OSVersion);
                 command.Parameters.AddWithValue("@Manufacturer", newSoftwareAsset.Manufacturer);
-
-                // Checks if the installation date has a default value
-                if (newSoftwareAsset.InstallationDate == default(DateTime))
-                {
-                    command.Parameters.AddWithValue("@InstallationDate", null);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@InstallationDate", newSoftwareAsset.InstallationDate);
-                }
-
-                command.Parameters.AddWithValue("@HardwareAssetID", newSoftwareAsset.HardwareAssetID);
+                command.Parameters.AddWithValue("@InstallationDate", newSoftwareAsset.InstallationDate);
 
                 int rowsAffected = command.ExecuteNonQuery();
 
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show("Data Inserted Successfully");
+                    // Retrieve the auto-generated SoftwareID
+                    MySqlCommand selectLastInsertIdCommand = new MySqlCommand("SELECT LAST_INSERT_ID()", conn);
+                    int softwareId = Convert.ToInt32(selectLastInsertIdCommand.ExecuteScalar());
+
+
+                    MessageBox.Show("Software Data Inserted Successfully");
+                    return softwareId;
                 }
                 else
                 {
@@ -65,8 +58,10 @@ namespace Asset_Tracking_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Soft" + ex.Message);
             }
+
+            return 0;
         }
 
         public DataTable ViewSoftwareAsset()
@@ -101,25 +96,16 @@ namespace Asset_Tracking_System
             try
             {
                 string query = "UPDATE SoftwareAsset SET OSName = @OSName, OSVersion = @OSVersion, " +
-                               "Manufacturer = @Manufacturer, InstallationDate = @InstallationDate, " +
-                               "HardwareAssetID = @HardwareAssetID WHERE AssetID = @ID";
+                               "Software_Manufacturer = @Manufacturer, InstallationDate = @InstallationDate, " +
+                               "WHERE OS_ID = @ID";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
 
                 command.Parameters.AddWithValue("@OSName", newSoftwareAsset.OSName);
                 command.Parameters.AddWithValue("@OSVersion", newSoftwareAsset.OSVersion);
                 command.Parameters.AddWithValue("@Manufacturer", newSoftwareAsset.Manufacturer);
+                command.Parameters.AddWithValue("@InstallationDate", newSoftwareAsset.InstallationDate);
 
-                if (newSoftwareAsset.InstallationDate == default(DateTime))
-                {
-                    command.Parameters.AddWithValue("@InstallationDate", null);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@InstallationDate", newSoftwareAsset.InstallationDate);
-                }
-
-                command.Parameters.AddWithValue("@HardwareAssetID", newSoftwareAsset.HardwareAssetID);
                 command.Parameters.AddWithValue("@ID", ID);
 
                 int rowsAffected = command.ExecuteNonQuery();

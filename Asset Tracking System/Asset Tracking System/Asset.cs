@@ -29,7 +29,7 @@ namespace Asset_Tracking_System
         }
 
 
-        public void AddAsset(Asset newAsset) 
+        public void AddAsset(Asset newAsset, int i) 
         {
             MySqlConnection conn = dbManager.GetConnection(); // set a connection variable
             //DataTable dt = new DataTable();
@@ -37,7 +37,7 @@ namespace Asset_Tracking_System
             try // try executing this block
             {
                 //added placeholder so that it protect against sql injection attack, i learned this approach here "https://stackoverflow.com/questions/14376473/what-are-good-ways-to-prevent-sql-injection"
-                string query = "INSERT INTO Asset(Name,Model,Manufacturer,Type,IP_Address,Purchase_Date,Text_Note,Employee_ID) VALUES (@Name, @Model, @Manufacturer, @Type, @IPAddress, @PurchaseDate, @Note, @EmpID)";
+                string query = "INSERT INTO Asset(Name,Model,Manufacturer,Type,IP_Address,Purchase_Date,Text_Note,Employee_ID,S_ID) VALUES (@Name, @Model, @Manufacturer, @Type, @IPAddress, @PurchaseDate, @Note, @EmpID, @SID)";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
 
@@ -60,6 +60,7 @@ namespace Asset_Tracking_System
 
                 command.Parameters.AddWithValue("@Note", newAsset.Note);
                 command.Parameters.AddWithValue("@EmpID", newAsset.EmployeeID);
+                command.Parameters.AddWithValue("@SID", i);
 
                 //Executes the query
                 int rowsAffected = command.ExecuteNonQuery();

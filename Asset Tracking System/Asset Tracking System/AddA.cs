@@ -21,6 +21,9 @@ namespace Asset_Tracking_System
         private Employee emp;
         private SoftwareAsset soft;
 
+        // Get current date without the time component
+        DateTime currentDateOnly = DateTime.Today;
+
         public AddA()
         {
             InitializeComponent();
@@ -61,10 +64,10 @@ namespace Asset_Tracking_System
                 txtType.Text = item["SystemType"].ToString();
 
                 //Software
-                txtOn.Text = item["OS Name"].ToString();
-                txtOv.Text = item["Version"].ToString();
-                txtOm.Text = item["OS Manufacturer"].ToString();
-                txtIns.Text = item["OS Name"].ToString();
+                txtOn.Text = item["Caption"].ToString();
+                txtOv.Text = Environment.OSVersion.VersionString;//item["Version"].ToString(); this code didnt work and had to use another one - this code is from the same website
+                txtOm.Text = item["Manufacturer"].ToString();
+                txtIns.Text = currentDateOnly.ToString("yyyy-MM-dd");
             }
 
             //gets the ip adress and displays it to the user, leanred from this website "https://stackoverflow.com/questions/6803073/get-local-ip-address"
@@ -121,10 +124,22 @@ namespace Asset_Tracking_System
                 //gets employee id
                 asset.EmployeeID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["EmployeeID"].Value);
 
+                // Assign values from TextBox controls to SoftwareAsset properties
+                soft.OSName = txtOn.Text;
+                soft.OSVersion = txtOv.Text;
+                soft.Manufacturer = txtOm.Text;
+                soft.InstallationDate = currentDateOnly;
+
                 try // try executing this block
                 {
-                    //Adds asset
-                    asset.AddAsset(asset);
+                    //Adds software
+                    int s = soft.AddSoftwareAsset(soft);
+
+                    if (s > 0)
+                    {
+                        //Adds asset
+                        asset.AddAsset(asset, s);
+                    }
 
                 }
                 catch (Exception ex) // catch any error from above block
