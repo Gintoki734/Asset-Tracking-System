@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "BCrypt.Net-Next/4.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Google.Protobuf/3.21.9": {
         "type": "package",
         "compile": {
@@ -686,6 +699,37 @@
     }
   },
   "libraries": {
+    "BCrypt.Net-Next/4.0.3": {
+      "sha512": "W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "type": "package",
+      "path": "bcrypt.net-next/4.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-next.4.0.3.nupkg.sha512",
+        "bcrypt.net-next.nuspec",
+        "ico.png",
+        "lib/net20/BCrypt.Net-Next.dll",
+        "lib/net20/BCrypt.Net-Next.xml",
+        "lib/net35/BCrypt.Net-Next.dll",
+        "lib/net35/BCrypt.Net-Next.xml",
+        "lib/net462/BCrypt.Net-Next.dll",
+        "lib/net462/BCrypt.Net-Next.xml",
+        "lib/net472/BCrypt.Net-Next.dll",
+        "lib/net472/BCrypt.Net-Next.xml",
+        "lib/net48/BCrypt.Net-Next.dll",
+        "lib/net48/BCrypt.Net-Next.xml",
+        "lib/net5.0/BCrypt.Net-Next.dll",
+        "lib/net5.0/BCrypt.Net-Next.xml",
+        "lib/net6.0/BCrypt.Net-Next.dll",
+        "lib/net6.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.0/BCrypt.Net-Next.dll",
+        "lib/netstandard2.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.1/BCrypt.Net-Next.dll",
+        "lib/netstandard2.1/BCrypt.Net-Next.xml",
+        "readme.md"
+      ]
+    },
     "Google.Protobuf/3.21.9": {
       "sha512": "OTpFujTgkmqMLbg3KT7F/iuKi1rg6s5FCS2M9XcVLDn40zL8wgXm37CY/F6MeOEXKjdcnXGCN/h7oyMkVydVsg==",
       "type": "package",
@@ -2187,6 +2231,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "BCrypt.Net-Next >= 4.0.3",
       "MySql.Data >= 8.1.0",
       "NuGet.Frameworks >= 6.7.0",
       "System.Data.SqlClient >= 4.8.5",
@@ -2200,11 +2245,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khana\\Source\\Repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
+      "projectUniqueName": "C:\\Users\\khana\\source\\repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
       "projectName": "Asset Tracking System",
-      "projectPath": "C:\\Users\\khana\\Source\\Repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
+      "projectPath": "C:\\Users\\khana\\source\\repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
       "packagesPath": "C:\\Users\\khana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khana\\Source\\Repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\obj\\",
+      "outputPath": "C:\\Users\\khana\\source\\repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2237,6 +2282,10 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
+          "BCrypt.Net-Next": {
+            "target": "Package",
+            "version": "[4.0.3, )"
+          },
           "MySql.Data": {
             "target": "Package",
             "version": "[8.1.0, )"

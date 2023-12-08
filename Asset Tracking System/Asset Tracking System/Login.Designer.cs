@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            txtMan = new TextBox();
+            txtPass = new TextBox();
             lblname = new Label();
             txtName = new TextBox();
             lblError = new Label();
@@ -48,14 +48,14 @@
             label1.TabIndex = 26;
             label1.Text = "Password";
             // 
-            // txtMan
+            // txtPass
             // 
-            txtMan.Location = new Point(585, 503);
-            txtMan.Margin = new Padding(2);
-            txtMan.Name = "txtMan";
-            txtMan.PasswordChar = '*';
-            txtMan.Size = new Size(362, 31);
-            txtMan.TabIndex = 25;
+            txtPass.Location = new Point(585, 503);
+            txtPass.Margin = new Padding(2);
+            txtPass.Name = "txtPass";
+            txtPass.PasswordChar = '*';
+            txtPass.Size = new Size(362, 31);
+            txtPass.TabIndex = 25;
             // 
             // lblname
             // 
@@ -118,7 +118,7 @@
             Controls.Add(cbs);
             Controls.Add(lblError);
             Controls.Add(label1);
-            Controls.Add(txtMan);
+            Controls.Add(txtPass);
             Controls.Add(lblname);
             Controls.Add(txtName);
             Name = "Login";
@@ -130,7 +130,7 @@
         #endregion
 
         private Label label1;
-        private TextBox txtMan;
+        private TextBox txtPass;
         private Label lblname;
         private TextBox txtName;
         private Label lblError;

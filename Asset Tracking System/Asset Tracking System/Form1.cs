@@ -4,8 +4,11 @@ using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
+
+
 namespace Asset_Tracking_System
 {
+
     public partial class Form1 : Form
     {
         private dbConManagement dbConManager;
@@ -13,18 +16,6 @@ namespace Asset_Tracking_System
         public Form1()
         {
             InitializeComponent();
-
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.EnableVisualStyles();
-            DialogResult result;
-            using (var loginForm = new Login())
-                result = loginForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                // login was successful
-                Application.Run(new Form1());
-            }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
