@@ -55,20 +55,31 @@ namespace Asset_Tracking_System
             ManagementObjectSearcher search = new("SELECT * FROM Win32_ComputerSystem");
 
             //displays the data to the user
-            foreach (var item in search.Get())
+            foreach (ManagementObject item in search.Get())
             {
                 //Hardware
                 txtName.Text = item["Name"].ToString();
                 txtMan.Text = item["Manufacturer"].ToString();
                 txtModel.Text = item["Model"].ToString();
                 txtType.Text = item["SystemType"].ToString();
+                break;
+            }
 
+            //get the data from the system, learned from this website "https://csharp.hotexamples.com/examples/System.Management/ManagementObjectSearcher/-/php-managementobjectsearcher-class-examples.html"
+            search = new("SELECT * FROM Win32_OperatingSystem");
+
+            //displays the data to the user
+            foreach (ManagementObject item in search.Get())
+            {
                 //Software
                 txtOn.Text = item["Caption"].ToString();
-                txtOv.Text = Environment.OSVersion.VersionString;//item["Version"].ToString(); this code didnt work and had to use another one - this code is from the same website
+                txtOv.Text = item["Version"].ToString();
                 txtOm.Text = item["Manufacturer"].ToString();
                 txtIns.Text = currentDateOnly.ToString("yyyy-MM-dd");
+                break;
             }
+
+
 
             //gets the ip adress and displays it to the user, leanred from this website "https://stackoverflow.com/questions/6803073/get-local-ip-address"
             IPHostEntry host;
