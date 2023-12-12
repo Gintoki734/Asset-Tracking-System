@@ -1,8 +1,11 @@
 using MySql.Data.MySqlClient; // when accessing the database
+using System;
 using System.Data;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
+//using System.Text.Json;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 
 
@@ -14,7 +17,8 @@ namespace Asset_Tracking_System
         private dbConManagement dbConManager;
         private Asset asset;
         private SoftwareAsset soft;
-        public Form1()
+
+    public Form1()
         {
             InitializeComponent();
         }
@@ -64,7 +68,7 @@ namespace Asset_Tracking_System
 
                 // Takes the user to the next form
                 this.Hide();
-                EditA A = new EditA(asset,soft,aID,SID);
+                EditA A = new EditA(asset, soft, aID, SID);
                 A.ShowDialog();
                 this.Close();
 
@@ -107,7 +111,7 @@ namespace Asset_Tracking_System
                 {
                     asset.DeleteAsset(id);
                     soft.DeleteSasset(sid);
-                    
+
                 }
                 catch (Exception no)
                 {
@@ -123,5 +127,59 @@ namespace Asset_Tracking_System
                 MessageBox.Show("Please, Select an Asset to delete");
             }
         }
+
+        private async void btnV_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    //string version = Convert.ToString(dataGridView2.SelectedRows[0].Cells["OSVersion"].Value);
+                    //string version = "10.0.22000";
+
+                    // Extracting Windows version and build
+                    string[] versionParts = version.Split('.');
+
+                    // Extracting major version directly
+                    string majorVersion = versionParts[0];
+
+                    // Constructing the link
+                    string windowsVersion = $"windows_{majorVersion}:{versionParts[2]}";
+                    string link = $"https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:o:microsoft:{windowsVersion}&cvssV3Severity=CRITICAL";
+
+                    using (var client = new HttpClient())
+                    {
+                        var response = await client.GetStringAsync(link);
+
+                        // Deserialize the JSON response
+                        var result = JsonConvert.DeserializeObject<dynamic>(response);
+
+                        // Access the vulnerabilities array
+                        var vulnerabilities = result.vulnerabilities;
+
+                        // Display values for each vulnerability
+                        foreach (var vulnerability in vulnerabilities)
+                        {
+                            string cveId = vulnerability.cve.id;
+                            string publishedDate = vulnerability.cve.published;
+                            string description = vulnerability.cve.descriptions[0].value;
+
+                            richTextBox1.AppendText($"CVE ID: {cveId}\nPublished Date: {publishedDate}\nDescription: {description}\n\n");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please, Select an Asset to check vulnerability");
+            }
+        }
+
+
+
     }
 }

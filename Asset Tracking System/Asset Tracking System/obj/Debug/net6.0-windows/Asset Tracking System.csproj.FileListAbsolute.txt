@@ -93,3 +93,4 @@ C:\Users\khana\Source\Repos\project-Gintoki734\Asset Tracking System\Asset Track
 C:\Users\khana\source\repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\obj\Debug\net6.0-windows\Asset_Tracking_System.EditA.resources
 C:\Users\khana\source\repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
 C:\Users\khana\source\repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\obj\Debug\net6.0-windows\Asset_Tracking_System.Login.resources
+C:\Users\khana\source\repos\project-Gintoki734\Asset Tracking System\Asset Tracking System\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

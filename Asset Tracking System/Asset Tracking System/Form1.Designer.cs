@@ -32,6 +32,8 @@
             dataGridView2 = new DataGridView();
             btnAddAsset = new Button();
             btnDelete = new Button();
+            btnV = new Button();
+            richTextBox1 = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
@@ -84,11 +86,33 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // btnV
+            // 
+            btnV.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
+            btnV.Location = new Point(1602, 871);
+            btnV.Margin = new Padding(2);
+            btnV.Name = "btnV";
+            btnV.Size = new Size(478, 132);
+            btnV.TabIndex = 5;
+            btnV.Text = "Check vulnerability";
+            btnV.UseVisualStyleBackColor = true;
+            btnV.Click += btnV_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(2169, 849);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(347, 179);
+            richTextBox1.TabIndex = 6;
+            richTextBox1.Text = "";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2554, 1055);
+            Controls.Add(richTextBox1);
+            Controls.Add(btnV);
             Controls.Add(btnDelete);
             Controls.Add(btnAddAsset);
             Controls.Add(dataGridView2);
@@ -106,5 +130,7 @@
         private DataGridView dataGridView2;
         private Button btnAddAsset;
         private Button btnDelete;
+        private Button btnV;
+        private RichTextBox richTextBox1;
     }
 }
