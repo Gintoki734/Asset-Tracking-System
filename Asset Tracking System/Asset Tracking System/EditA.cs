@@ -96,7 +96,7 @@ namespace Asset_Tracking_System
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Validate required fields
+            // Validate required fields 
             if (string.IsNullOrWhiteSpace(txtName.Text) ||
                 string.IsNullOrWhiteSpace(txtMan.Text) ||
                 string.IsNullOrWhiteSpace(txtModel.Text) ||
