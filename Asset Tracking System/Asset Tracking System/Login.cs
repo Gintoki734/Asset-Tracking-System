@@ -70,6 +70,7 @@ namespace Asset_Tracking_System
                         {
                             // Authentication successful
                             DialogResult = DialogResult.OK;
+                            dbConManager.CloseConnection();
                         }
                         else
                         {
@@ -106,6 +107,11 @@ namespace Asset_Tracking_System
                 // If the CheckBox is not checked, hide the password
                 txtPass.PasswordChar = '*'; // Set to any character you prefer for password hiding
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,13 +34,14 @@
             btnDelete = new Button();
             btnV = new Button();
             richTextBox1 = new RichTextBox();
+            btnEnd = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // btnEdit
             // 
             btnEdit.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnEdit.Location = new Point(614, 871);
+            btnEdit.Location = new Point(535, 871);
             btnEdit.Margin = new Padding(2);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(338, 132);
@@ -52,20 +53,20 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(68, 52);
+            dataGridView2.Location = new Point(23, 20);
             dataGridView2.Margin = new Padding(2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 62;
             dataGridView2.RowTemplate.Height = 33;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(2242, 760);
+            dataGridView2.Size = new Size(2077, 760);
             dataGridView2.TabIndex = 2;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // btnAddAsset
             // 
             btnAddAsset.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnAddAsset.Location = new Point(102, 871);
+            btnAddAsset.Location = new Point(23, 871);
             btnAddAsset.Margin = new Padding(2);
             btnAddAsset.Name = "btnAddAsset";
             btnAddAsset.Size = new Size(338, 132);
@@ -77,7 +78,7 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnDelete.Location = new Point(1095, 871);
+            btnDelete.Location = new Point(1016, 871);
             btnDelete.Margin = new Padding(2);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(377, 132);
@@ -89,7 +90,7 @@
             // btnV
             // 
             btnV.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
-            btnV.Location = new Point(1602, 871);
+            btnV.Location = new Point(1523, 871);
             btnV.Margin = new Padding(2);
             btnV.Name = "btnV";
             btnV.Size = new Size(478, 132);
@@ -100,17 +101,30 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(2169, 849);
+            richTextBox1.Location = new Point(2127, 20);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(347, 179);
+            richTextBox1.Size = new Size(415, 760);
             richTextBox1.TabIndex = 6;
             richTextBox1.Text = "";
+            // 
+            // btnEnd
+            // 
+            btnEnd.Font = new Font("Segoe UI Semilight", 26F, FontStyle.Italic, GraphicsUnit.Point);
+            btnEnd.Location = new Point(2263, 871);
+            btnEnd.Margin = new Padding(2);
+            btnEnd.Name = "btnEnd";
+            btnEnd.Size = new Size(279, 132);
+            btnEnd.TabIndex = 7;
+            btnEnd.Text = "Close";
+            btnEnd.UseVisualStyleBackColor = true;
+            btnEnd.Click += btnEnd_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2554, 1055);
+            Controls.Add(btnEnd);
             Controls.Add(richTextBox1);
             Controls.Add(btnV);
             Controls.Add(btnDelete);
@@ -132,5 +146,6 @@
         private Button btnDelete;
         private Button btnV;
         private RichTextBox richTextBox1;
+        private Button btnEnd;
     }
 }

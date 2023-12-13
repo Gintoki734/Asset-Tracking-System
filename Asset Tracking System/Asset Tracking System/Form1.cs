@@ -18,7 +18,7 @@ namespace Asset_Tracking_System
         private Asset asset;
         private SoftwareAsset soft;
 
-    public Form1()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -35,8 +35,6 @@ namespace Asset_Tracking_System
 
             //Displays the asset - I learned to code to work with sql in this website "https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-sql-command.html".
             dataGridView2.DataSource = asset.ViewAsset();
-
-            //dbConManager.CloseConnection();
 
 
         }
@@ -134,8 +132,7 @@ namespace Asset_Tracking_System
             {
                 try
                 {
-                    //string version = Convert.ToString(dataGridView2.SelectedRows[0].Cells["OSVersion"].Value);
-                    //string version = "10.0.22000";
+                    string version = Convert.ToString(dataGridView2.SelectedRows[0].Cells["OSVersion"].Value);
 
                     // Extracting Windows version and build
                     string[] versionParts = version.Split('.');
@@ -179,7 +176,11 @@ namespace Asset_Tracking_System
             }
         }
 
+        private void btnEnd_Click(object sender, EventArgs e)
+        {
+            dbConManager.CloseConnection();
+            Application.Exit();
 
-
+        }
     }
 }

@@ -96,6 +96,19 @@ namespace Asset_Tracking_System
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(txtName.Text) ||
+                string.IsNullOrWhiteSpace(txtMan.Text) ||
+                string.IsNullOrWhiteSpace(txtModel.Text) ||
+                string.IsNullOrWhiteSpace(txtType.Text) ||
+                string.IsNullOrWhiteSpace(txtIp.Text) ||
+                string.IsNullOrWhiteSpace(txtOSN.Text) ||
+                string.IsNullOrWhiteSpace(txtOSV.Text) ||
+                string.IsNullOrWhiteSpace(txtOSM.Text))
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
 
             //saves the data in the variable
             asset.Name = txtName.Text;

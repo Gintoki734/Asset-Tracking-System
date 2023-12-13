@@ -22,7 +22,15 @@ namespace Asset_Tracking_System
         {
             if (connection.State == ConnectionState.Closed)
             {
-                connection.Open();
+                try
+                {
+                    connection.Open();
+                }
+                catch (Exception c)
+                {
+                    MessageBox.Show(c.Message);
+                }
+                
             }
         }
 
@@ -35,7 +43,15 @@ namespace Asset_Tracking_System
         {
             if (connection.State == ConnectionState.Open)
             {
-                connection.Close();
+                try
+                {
+                    connection.Close();
+                }
+                catch (Exception c)
+                {
+                    MessageBox.Show(c.Message);
+                }
+                
             }
         }
     }
