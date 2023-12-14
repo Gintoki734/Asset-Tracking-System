@@ -126,6 +126,7 @@ namespace Asset_Tracking_System
 
         private async void btnV_Click(object sender, EventArgs e)
         {
+            richTextBox1.Clear();
             if (dataGridView2.SelectedRows.Count > 0)
             {
                 try
