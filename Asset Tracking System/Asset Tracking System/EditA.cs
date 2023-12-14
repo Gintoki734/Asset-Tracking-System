@@ -21,7 +21,7 @@ namespace Asset_Tracking_System
         int aID;
         int sID;
 
-        public EditA(Asset assets,SoftwareAsset sAsset, int a, int s)
+        public EditA(Asset assets, SoftwareAsset sAsset, int a, int s)
         {
             InitializeComponent();
 
@@ -149,7 +149,15 @@ namespace Asset_Tracking_System
                     // Edits the software asset
                     asset.EditAsset(asset, aID);
 
-                    // This code won't be reached if the first edit fails
+                    //Takes the user to the next form 
+
+                    this.Hide();
+
+                    Form1 f = new Form1();
+
+                    f.ShowDialog();
+
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -160,6 +168,20 @@ namespace Asset_Tracking_System
             {
                 MessageBox.Show("Please Select an Employee to assign");
             }
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            //Takes the user to the next form 
+
+            this.Hide();
+
+            Form1 f = new Form1();
+
+            f.ShowDialog();
+
+            this.Close();
         }
     }
 }
