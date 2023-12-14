@@ -22,6 +22,9 @@ namespace Asset_Tracking_System
         {
             InitializeComponent();
 
+            // Initialize the DbConnectionManager with your connection string
+            dbConManager = new dbConManagement();
+            dbConManager.OpenConnection(); // Open the connection when the main form starts
 
         }
 
@@ -43,9 +46,6 @@ namespace Asset_Tracking_System
 
                 try
                 {
-                    // Initialize the DbConnectionManager with your connection string
-                    dbConManager = new dbConManagement();
-                    dbConManager.OpenConnection(); // Open the connection when the main form starts
 
                     MySqlConnection conn = dbConManager.GetConnection(); // set a connection variable
 
@@ -112,6 +112,12 @@ namespace Asset_Tracking_System
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            dbConManager.CloseConnection();
+            Application.Exit();
         }
     }
 }

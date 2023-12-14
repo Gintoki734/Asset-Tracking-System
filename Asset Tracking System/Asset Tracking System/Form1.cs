@@ -59,8 +59,6 @@ namespace Asset_Tracking_System
                 soft.Manufacturer = Convert.ToString(dataGridView2.SelectedRows[0].Cells["Software_Manufacturer"].Value);
                 soft.InstallationDate = Convert.ToDateTime(dataGridView2.SelectedRows[0].Cells["InstallationDate"].Value);
 
-                MessageBox.Show("" + soft.InstallationDate);
-
                 int aID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["A_ID"].Value);
                 int SID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["S_ID"].Value);
 

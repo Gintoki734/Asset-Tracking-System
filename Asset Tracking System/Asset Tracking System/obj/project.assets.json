@@ -2289,11 +2289,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khana\\source\\repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
+      "projectUniqueName": "C:\\Users\\khana\\Desktop\\308\\new\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
       "projectName": "Asset Tracking System",
-      "projectPath": "C:\\Users\\khana\\source\\repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
+      "projectPath": "C:\\Users\\khana\\Desktop\\308\\new\\Asset Tracking System\\Asset Tracking System\\Asset Tracking System.csproj",
       "packagesPath": "C:\\Users\\khana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khana\\source\\repos\\project-Gintoki734\\Asset Tracking System\\Asset Tracking System\\obj\\",
+      "outputPath": "C:\\Users\\khana\\Desktop\\308\\new\\Asset Tracking System\\Asset Tracking System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2370,7 +2370,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
