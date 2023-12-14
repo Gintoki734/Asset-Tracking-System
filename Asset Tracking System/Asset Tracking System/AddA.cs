@@ -164,6 +164,15 @@ namespace Asset_Tracking_System
                 MessageBox.Show("Please Select an Employee to assign");
             }
 
+            //Takes the user to the next form 
+
+            this.Hide();
+
+            Form1 f = new Form1();
+
+            f.ShowDialog();
+
+            this.Close();
         }
 
         private void dtpPdate_ValueChanged(object sender, EventArgs e)
@@ -182,6 +191,19 @@ namespace Asset_Tracking_System
             {
                 dtpPdate.Visible = false;
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            //Takes the user to the next form 
+
+            this.Hide();
+
+            Form1 f = new Form1();
+
+            f.ShowDialog();
+
+            this.Close();
         }
     }
 }
