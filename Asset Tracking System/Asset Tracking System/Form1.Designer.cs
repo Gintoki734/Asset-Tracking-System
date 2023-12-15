@@ -129,9 +129,9 @@
             label4.Location = new Point(18, 21);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(978, 37);
+            label4.Size = new Size(1282, 37);
             label4.TabIndex = 37;
-            label4.Text = "Please select the data row you want to delete or edit before clicking the button";
+            label4.Text = "Please select the data row you want to delete or editor check vulnerability for before clicking the button";
             // 
             // label1
             // 
