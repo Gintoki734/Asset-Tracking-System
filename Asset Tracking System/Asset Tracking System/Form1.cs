@@ -165,6 +165,12 @@ namespace Asset_Tracking_System
 
                             richTextBox1.AppendText($"CVE ID: {cveId}\nPublished Date: {publishedDate}\nDescription: {description}\n\n");
                         }
+
+                        //wait for 6 seconds before continuing with the code.
+                        MessageBox.Show("Please wait for 6 seconds before continuing with the application");
+                        Thread.Sleep(6000);
+                        MessageBox.Show("Thanks for the wait, you can continue with the application now");
+
                     }
                 }
                 catch (Exception ex)
