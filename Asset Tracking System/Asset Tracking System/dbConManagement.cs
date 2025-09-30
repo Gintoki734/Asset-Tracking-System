@@ -11,7 +11,7 @@ namespace Asset_Tracking_System
     public class dbConManagement
     {
         private MySqlConnection connection;
-        private string connStr = "Data Source = lochnagar.abertay.ac.uk; Initial Catalog = sql2102230; User ID = sql2102230; Password = v8Fksm9zWUEm";
+        private string connStr = Environment.GetEnvironmentVariable("DatabaseConn");
 
         public dbConManagement()
         {
